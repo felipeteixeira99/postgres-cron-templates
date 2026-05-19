@@ -1,4 +1,4 @@
-# postgres-cron-templates
+# Postgres-cron-templates
 
 Automatize tarefas repetitivas no PostgreSQL sem depender 
 de ferramentas pagas ou infraestrutura complexa.
