@@ -1,74 +1,31 @@
-# 🚀 postgres-cron-templates
+# postgres-cron-templates
 
-Templates e exemplos de automação de funções SQL no PostgreSQL via **shell + cron**.
+Automatize tarefas repetitivas no PostgreSQL sem depender 
+de ferramentas pagas ou infraestrutura complexa.
 
----
+## Problema que resolve
 
-## 📌 Objetivo
-Este repositório contém **templates e exemplos de scripts em shell (`.sh`)** para execução automatizada de funções SQL no PostgreSQL, utilizando o **cron** do Linux.  
+Muitas empresas têm rotinas críticas rodando manualmente:
+fechamento de caixa, apuração de metas, geração de relatórios.
+Isso significa alguém abrindo terminal todo dia, toda semana,
+sem log, sem rastreabilidade, sem aviso quando falha.
 
-A ideia é servir como **guia e referência pública**, sem expor credenciais ou dados sensíveis.
+Esses templates resolvem isso com shell + cron nativos do Linux,
+sem dependência externa, prontos pra usar em produção.
 
----
+## O que tem aqui
 
-## 🛠 Estrutura
-```
-scripts/
- ├── jobs_sql/
- │    ├── template_job.sh        # Modelo genérico
- │    └── exemplo_apuracao.sh    # Exemplo fictício
-templates/                       # Outros modelos reutilizáveis
-```
+- Template genérico de job SQL agendado
+- Exemplo real de apuração automatizada
+- Logs automáticos com data e status
+- Boas práticas de segurança (sem credenciais no código)
 
----
+## Tecnologias
 
-## ⚙️ Como usar
-1. Copie o template:
-   ```bash
-   cp scripts/jobs_sql/template_job.sh scripts/jobs_sql/meu_job.sh
-   ```
+PostgreSQL · Shell Script · Cron · Linux
 
-2. Edite variáveis principais:
-   - Nome do log (`LOG_FILE`)
-   - Usuário e banco (`USUARIO`, `BANCO`)
-   - Função SQL:
-     ```sql
-     PERFORM MINHA_FUNCAO_AQUI();
-     ```
+## Resultado prático
 
-3. Dê permissão:
-   ```bash
-   chmod +x scripts/jobs_sql/meu_job.sh
-   ```
-
-4. Teste manualmente:
-   ```bash
-   ./scripts/jobs_sql/meu_job.sh
-   ```
-
-5. Agende no cron:
-   ```bash
-   crontab -e
-   ```
-   Exemplo (todo dia às 02:30):
-   ```
-   30 2 * * * /caminho/para/meu_job.sh
-   ```
-
----
-
-## 📋 Boas práticas
-- Sempre usar **caminho absoluto** do `psql`.  
-- Nunca versionar **senhas, .pgpass ou credenciais**.  
-- Logs devem estar em `.gitignore`.  
-
----
-
-## 📜 Licença
-Este projeto está sob a licença MIT – veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-✍️ Autor: **Felipe Teixeira Assunção**  
-📅 Criado em: 2025-08-29
-
+Processos que antes exigiam execução manual diária
+passam a rodar automaticamente, com log de auditoria
+e notificação em caso de falha.
